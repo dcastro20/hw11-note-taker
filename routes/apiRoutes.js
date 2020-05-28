@@ -13,11 +13,11 @@ module.exports = function (app) {
     });
     app.delete("/api/notes/:id", function (req, res) {
         console.log(req.params.id);
-        const newNotesList = tableData.filter(note => note.id !== req.params.id);
-        
-        tableData = newNotesList;
+        const newNotesList = tableData.filter(note => note.id !== parseInt(req.params.id));
+        tableData = newNotesList
         res.json(tableData);
-        console.log(newNotesList);
+        console.log(tableData);
     });
 }
 console.log("apiRoutes");
+
